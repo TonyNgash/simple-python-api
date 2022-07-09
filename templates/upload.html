@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='scripts/bootstrap.css') }}">
+    <title>Upload Products</title>
+</head>
+<body>
+
+    <p class="text-center display-1">Upload Products</p>
+    
+    <div class="container">
+        {% if msg %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ msg }}.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+        {% endif %}
+        
+            <div class="card">
+                <div class="card-header">
+                    Fill in the form below
+                </div>
+                <div class="card-body">
+                    <form action="/receive-product" method="POST" enctype="multipart/form-data">
+                        <label>Product Name</label>
+                        <input type="text" name="product_name" class="form-control">
+                        <label>Product Price</label>
+                        <input type="number" name="product_price" class="form-control">
+                        <label>Product Description</label>
+                        <textarea name="product_description" class="form-control"></textarea>
+                        <label>Product Image</label>
+                        <input type="file" name="product_image" class="form-control">
+                        <br>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+    </div>
+    
+
+
+
+
+    <script src="{{ url_for('static', filename='scripts/bootstrap.css') }}"></script>
+</body>
+</html>
